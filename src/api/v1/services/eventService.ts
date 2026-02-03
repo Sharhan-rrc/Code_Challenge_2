@@ -114,3 +114,16 @@ export const updateEvent = (
 
     return event;
 };
+
+// Delete event
+export const deleteEvent = (id: number): boolean => {
+    const index = events.findIndex((e) => e.id === id);
+
+    if (index === -1) {
+        return false;
+    }
+
+    events.splice(index, 1):
+    return true;
+};
+
