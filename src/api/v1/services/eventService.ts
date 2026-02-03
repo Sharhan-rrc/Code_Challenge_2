@@ -127,3 +127,33 @@ export const deleteEvent = (id: number): boolean => {
     return true;
 };
 
+// Calculate popularity score and tier
+export const calculatePopularity = (id: number): PopularityResponse | null => {
+  const event = events.find((e) => e.id === id);
+
+  if (!event) {
+    return null;
+  }
+
+// Calculate Popularity score
+let popularityScore = 0;
+if (event.capacity > 0) {
+  popularityScore =
+    (event.registrationCount / event.capacity) * 100;
+}
+
+// Round to 1 decimal place
+popularityScore = Math.round(popularityScore * 10) / 10;
+
+// Determine tear
+let popularityTier = "New";
+if (popularityScore >= 90) {
+    popularityTier = "Hot";
+} else if (popularityScore >= 70) {
+    popularityTier = "Popular";
+} else if (popularityScore >= 50) {
+    popularityTier = "Moderate";
+} else if (popularityScore >= 25) {
+    popularityTier = "Building";
+}
+
