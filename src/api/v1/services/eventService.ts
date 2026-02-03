@@ -64,3 +64,13 @@ let attendees: Attendee[] = [
 ];
 
 let nextEventId = 4;
+
+// Get all events
+export const getAllEvents = (): Event[] => {
+  return events;
+};
+
+// Get event by ID
+export const getEventById = (id: number): Event | undefined => {
+  return events.find((event) => event.id === id);
+};
