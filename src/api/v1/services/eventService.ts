@@ -74,3 +74,23 @@ export const getAllEvents = (): Event[] => {
 export const getEventById = (id: number): Event | undefined => {
   return events.find((event) => event.id === id);
 };
+
+// Create new event
+export const createEvent = (
+  name: string,
+  date: string,
+  capacity: number
+): Event => {
+  const newEvent: Event = {
+    id: nextEventId,
+    name,
+    date,
+    capacity,
+    registrationCount: 0,
+  };
+
+  events.push(newEvent);
+  nextEventId++;
+
+  return newEvent;
+};
