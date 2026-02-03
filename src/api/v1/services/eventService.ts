@@ -94,3 +94,23 @@ export const createEvent = (
 
   return newEvent;
 };
+
+// Update event
+export const updateEvent = (
+  id: number,
+  name: string,
+  dtae: string,
+  capacity: number
+): Event | null => {
+    const event = events.find((e) => e.id === id);
+
+    if (!event) {
+        return null;
+    }
+
+    event.name = name;
+    event.date = dtae;
+    event.capacity = capacity;
+
+    return event;
+};
