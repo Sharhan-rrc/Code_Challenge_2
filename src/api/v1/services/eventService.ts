@@ -123,7 +123,7 @@ export const deleteEvent = (id: number): boolean => {
         return false;
     }
 
-    events.splice(index, 1):
+    events.splice(index, 1);
     return true;
 };
 
