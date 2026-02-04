@@ -99,7 +99,7 @@ export const createEvent = (
 export const updateEvent = (
   id: number,
   name: string,
-  dtae: string,
+  date: string,
   capacity: number
 ): Event | null => {
     const event = events.find((e) => e.id === id);
@@ -109,7 +109,7 @@ export const updateEvent = (
     }
 
     event.name = name;
-    event.date = dtae;
+    event.date = date;
     event.capacity = capacity;
 
     return event;
