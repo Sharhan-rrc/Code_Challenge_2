@@ -87,6 +87,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "ts-node src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
