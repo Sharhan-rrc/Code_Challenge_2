@@ -36,7 +36,7 @@ export const getAllEvents = (req: Request, res: Response): void => {
 // GET /api/v1/events/:id (Path for Postman testing)
 export const getEventById = (req: Request, res: Response): void => {
   try {
-    const id = parseInt(req.params.id);
+    const id = parseInt(Array.isArray(req.params.id) ? req.params.id[0] : req.params.id);
 
     const event = eventService.getEventById(id);
 
@@ -61,7 +61,7 @@ export const getEventById = (req: Request, res: Response): void => {
 // GET /api/v1/events/:id/popularity (Path for Postman testing)
 export const getEventPopularity = (req: Request, res: Response): void => {
   try {
-    const id = parseInt(req.params.id);
+    const id = parseInt(Array.isArray(req.params.id) ? req.params.id[0] : req.params.id);
 
     const popularityData = eventService.calculatePopularity(id);
 
@@ -127,7 +127,7 @@ export const createEvent = (req: Request, res: Response): void => {
 // PUT /api/v1/events/:id (Path for Postman testing)
 export const updateEvent = (req: Request, res: Response): void => {
   try {
-    const id = parseInt(req.params.id);
+    const id = parseInt(Array.isArray(req.params.id) ? req.params.id[0] : req.params.id);
     const { name, date, capacity } = req.body;
 
     // Validate ID exists
@@ -170,7 +170,7 @@ export const updateEvent = (req: Request, res: Response): void => {
 // DELETE /api/v1/events/:id (Path for Postman testing)
 export const deleteEvent = (req: Request, res: Response): void => {
   try {
-    const id = parseInt(req.params.id);
+    const id = parseInt(Array.isArray(req.params.id) ? req.params.id[0] : req.params.id);
 
     const deleted = eventService.deleteEvent(id);
 
