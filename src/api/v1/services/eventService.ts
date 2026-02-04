@@ -157,3 +157,22 @@ if (popularityScore >= 90) {
     popularityTier = "Building";
 }
 
+// Calculate spots remaining
+const spotsRemaining = event.capacity - event.registrationCount;
+    
+    return {
+        id: event.id,
+        name: event.name,
+        date: event.date,
+        capacity: event.capacity,
+        registrationCount: event.registrationCount,
+        spotsRemaining,
+        popularityScore,
+        popularityTier,
+    };
+}
+
+// Get all attendees
+export const getAllAttendees = (): Attendee[] => {
+    return attendees;
+};
